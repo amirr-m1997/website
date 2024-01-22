@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    صفحه وبلاگ
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <img src="{% static 'images/1247.jpg' %}" alt="لوگو">
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link active"> صفحه اصلی</a><br>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="banner-blog">
+        <div id="particles-js"></div>
+        <div class="banner-caption text-center">
+            <h1>صفحه پست وبلاگ</h1>
+            <div class="bread-crumb mt-10">
+                <a href="{% url 'index' %}">خانه</a>
+                <a href="{% url 'blogs-list' %}">وبلاگ</a>
+                {#            <a href="#">صفحه</a>#}
+            </div>
+        </div>
+    </section>
+
+    <section class="blogs blog-list pt-100 pb-50" data-scroll-index="4">
+        <div class="container">
+            <div class="row">
+                {% for blog in blogs %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="{% url 'single-blog' blog.id %}">
+                                    <img src="{{ blog.image.url }}" alt="{{ blog.sub }}" width="120">
+                                </a>
+                            </div>
+                            <div class="blog-content">
+                                <h3>{{ blog.sub }}</h3>
+                                <p>{{ blog.description }}</p>
+                                <div class="blog-meta">
+                                <span class="more">
+                                      <a href="{% url 'single-blog' blog.id %}">ارسال نظر</a>
+                                </span>
+                                    <span class="date">
+                                    {{ blog.published|date:"d m Y" }}
+                                </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

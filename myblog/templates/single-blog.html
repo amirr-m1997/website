@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    {{ blog.sub }}
+{% endblock %}
+
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <img src="{% static 'images/1247.jpg' %}" alt="لوگو">
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link active"> صفحه اصلی</a><br>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="banner-blog">
+        <div id="particles-js"></div>
+        <div class="banner-caption text-center">
+            <h1>صفحه پست وبلاگ</h1>
+            <div class="bread-crumb mt-10">
+                <a href="{% url 'index' %}">خانه</a>
+                <a href="{% url 'blogs-list' %}">وبلاگ</a>
+                {#            <a href="#">صفحه</a>#}
+            </div>
+        </div>
+    </section>
+    <section class="blog-detail pt-100 pb-100" style="display: flow ; align-items: center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="blog-image" style="align-items: center">
+                        <img src="{{ blog.image.url }}" alt="{{ blog.sub }}">
+                    </div>
+                    <div class="blog-heading">
+                        <h2>{{ blog.sub }}</h2>
+                        <div class="blog-meta">
+                            <span class="date">تاریخ انتشار: {{ blog.published|date:"Y.m.d" }}</span>
+                        </div>
+                        <div>
+                            <span class="by">منتشر شده توسط {{ blog.publisher }}</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <br>
+                        <blockquote>{{ blog.description }}</blockquote>
+                    </div>
+                    <section>
+                        <div>
+                            <div>
+{#                                <form id='contact-form' method="POST" action="{% url 'single-blog' blog.id %}">#}
+                                <form id='contact-form' method="POST" action="{% url 'single-blog' blog_id=blog.id %}">
+
+                                    <input type='hidden' name='form-name' value='contactForm'/>
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-10 offset-lg-1">
+                                            <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label for="contact-name"></label>
+                                                    <input type="text" class="form-control con-validate"
+                                                           id="contact-name"
+                                                           placeholder="نام(اجباری)" minlength="2" name="name"
+                                                           autocomplete="name">
+                                                    <P id="error-message-name"></P>
+                                                </div>
+
+
+                                                <div class="col-md-6 form-group">
+                                                    <label for="contact-email"></label>
+                                                    <input  class="form-control con-validate"
+                                                           id="contact-email"
+                                                           placeholder="ایمیل(اجباری)" name="email"
+                                                           autocomplete="email">
+                                                    <P id="error-message-email"></P>
+                                                </div>
+
+                                                <div id="error-message"></div>
+                                                <div class="col-md-12 form-group">
+                                                    <label for="contact-message"></label>
+                                                    <textarea class="form-control con-validate" id="contact-message"
+                                                              placeholder="چگونه میتوانم کمکتون کنم؟(اجباری)" rows="6"
+                                                              name="description" autocomplete="off"></textarea>
+                                                    <P id="error-message-description"></P>
+                                                </div>
+
+                                                <div class="col-md-12 text-center">
+                                                    <button id="contact-submit" class="btn btn-outline-dark"
+                                                            type="submit">
+                                                        ارسال پیام
+                                                    </button>
+                                                    <div id="success-message"
+                                                         style="display: none; color: green;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="col-md-12">
+                            {% if persons %}
+                                <br>
+                                <h3 class="comment-title">نظرات شما 👇 </h3>
+                                <ul class="post-comment" id="comment-list">
+                                    {% for person in persons %}
+                                        <li>
+                                            <div class="comment-info">
+                                                <h3>{{ person.name }} گفته: </h3>
+                                                <span>{{ person.published|date:"d-m-Y | H:i" }}</span>
+                                                <p>{{ person.description }}</p>
+                                            </div>
+                                            <div class="custom-button">
+                                                <a href="#reply{{ person.id }}"
+                                                   data-toggle="collapse"
+                                                   data-target=".reply-collapse-{{ person.id }}"
+
+                                                   class="btn btn-outline-dark">
+                                                    پاسخ به: {{ person.name }}
+                                                </a>
+                                            </div>
+                                            <div class="collapse reply-collapse-{{ person.id }}">
+                                                <form method="post" action="{% url 'single-blog' blog.id %}"
+                                                      class="comment-form ajax-comment-form"
+                                                      id="comment-form-{{ person.id }}">
+                                                    {% csrf_token %}
+                                                    <input name="name" id="name2" class="form-control form-control-sm"
+                                                           type="text" placeholder="نام">
+                                                    <input name="email" id="email2" class="form-control form-control-sm"
+                                                           placeholder="ايميل">
+                                                    <input name="description" id="description2"
+                                                           class="form-control form-control-lg" type="text"
+                                                           placeholder="نظر">
+                                                    <input name="parent_id" id="parent2" type="hidden"
+                                                           value="{{ person.id }}">
+                                                    <div id="error-message1"></div>
+                                                    <div id="form-messages-{{ person.id }}" class="text-center"></div>
+                                                    <button type="submit" class="submitpad btn btn-primary"
+                                                            id="comment-submit"
+                                                            style="float: right; margin-top: 5px;">ارسال
+                                                    </button>
+                                                    <div id="success-message1"
+                                                         style="display: none; color: green;"></div>
+                                                </form>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+{#    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>#}
+
+{#    <script>#}
+{##}
+{##}
+{#        $("#contact-form").on("submit", function (event) {#}
+{#            event.preventDefault();#}
+{#            if (validateForm()) {#}
+{#                var form = $(this);#}
+{#                var name = $("#contact-name").val();#}
+{#                var email = $("#contact-email").val();#}
+{#                var description = $("#contact-message").val();#}
+{#                $.ajax({#}
+{#                    type: "POST",#}
+{#                    url: "{% url 'single-blog' blog.id %}",#}
+{#                    data: {#}
+{#                        name: name,#}
+{#                        email: email,#}
+{#                        description: description,#}
+{#                        csrfmiddlewaretoken: form.find('input[name="csrfmiddlewaretoken"]').val()#}
+{#                    },#}
+{#                    success: function (data) {#}
+{#                        form[0].reset();#}
+{#                        $("#success-message").text("پیام شما با موفقیت ارسال شد! نظر شما پس از تایید مدیر در زیر همین پست نمایش داده خواهد شد.").show();#}
+{##}
+{#                        setTimeout(function () {#}
+{#                            $("#success-message").hide();#}
+{#                        }, 7000);#}
+{#                    },#}
+{#                    error: function (xhr, textStatus, errorThrown) {#}
+{#                        $("#success-message").text("متاسفانه مشکلی در ارسال پیام به وجود آمد.لطفا دوباره امتحان نمایید!").show();#}
+{#                    }#}
+{#                });#}
+{#            }#}
+{#        });#}
+{#    </script>#}
+
+
+    <script>
+
+    </script>
+{% endblock %}

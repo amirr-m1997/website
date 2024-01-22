@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Personal, Portfolio, Creative">
+    <meta name="description" content="Kalvin Portfolio Template">
+    <meta name="author" content="cosmos-themes">
+
+    <title> {% block title %}{% endblock %} </title>
+
+    <link href="{% static 'images/favicon.ico' %}" rel="icon" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+
+<body>
+<div class="preloader">
+    <div class="loader "></div>
+</div>
+
+
+{% block content %}{% endblock %}
+
+<footer class="pt-50 pb-50" data-scroll-index="5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-sm-6">
+                <div class="contact-info">
+                    <h5> شبکه های اجتماعی </h5>
+                    <a href="https://telegram.org/@amirr_m1997" target="_blank"><i class="fa fa-telegram"></i>
+                        تلگرام</a><br>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="contact-info">
+                    <h5>تلفن</h5>
+                    <p><a href="tel:9147389685">9147389685(98+)</a></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="contact-info">
+                    <h5> ایمیل</h5>
+                    <p><a href="mailto:mohamadi.seif75@gmail.com">mohamadi.seif75@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="contact-info">
+                    <h5>آدرس</h5>
+                    <p>ایران-تبریز </p>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <hr>
+                <p class="copy pt-30">
+                    <a style="color: dodgerblue;" href="https://telegram.me/amirr_m1997" target="_blank">ساخته شده توسط
+                        امير 1402 😊</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="{% static 'js/particles.min.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.js' %}"></script>
+<script src="{% static 'js/animated.headline.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/scrollIt.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/sendmail.js' %}"></script>
+<script>
+    particlesJS.load('particles-js', 'js/particles.json', function () {
+        console.log('callback - particles.js config loaded');
+    });
+</script>
+</body>
+</html>
