@@ -26,7 +26,7 @@ document.querySelectorAll("#contact-form").forEach((elm) => {
         } else {
             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
             if (!emailPattern.test(email)) {
-                e.currentTarget.querySelector("#error-message-email").innerHTML = "ايميل وارد شده معتبر نيست مانند نمونه پر كنيد amir@gmail.com";
+                e.currentTarget.querySelector("#error-message-email").innerHTML = "ايميل وارد شده معتبر نيست مانند نمونه پر كنيد jane.doe@example.com";
                 e.currentTarget.querySelector("#contact-email").style.borderColor = 'red';
                 isValidEmail = false;
             } else {

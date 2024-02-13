@@ -843,7 +843,7 @@ nav.fixed-top .nav-item .nav-link:before {
 
 .banner .banner-caption p {
     font-size: 24px;
-    font-family: "Vazir";
+    font-family:"Vazir", serif;
     color: #eee;
 }
 
@@ -1346,11 +1346,11 @@ section.portfolio .portfolio-items .item .item-content:hover .item-overlay .icon
     -o-transition: all .5s;
     transition: all .5s;
 
-    /*display: block;*/
-    /*width: 100%;*/
-    /*-webkit-transition: all .5s;*/
-    /*-o-transition: all .5s;*/
-    /*transition: all .5s;*/
+    display: block;
+    width: 100%;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
 }
 
 .blogs .blog-item .blog-img img:hover {
