@@ -1823,3 +1823,42 @@ section.banner-blog .banner-caption h1 {
 #error-message-description , #error-message-name, #error-message-email {
     color: red;
 }
+
+.rounded-circle {
+    border-radius: 50%;
+}
+.logo-img {
+    width: 80px; /* اندازه اولیه تصویر */
+    height: 80px;
+    transition: width 0.3s, height 0.3s; /* انیمیشن تغییر اندازه */
+}
+
+.logo-img.clicked {
+    width: 200px; /* اندازه بزرگتر شده تصویر */
+    height: 200px;
+}
+
+.logo-img.clicked:hover {
+    cursor: pointer; /* تغییر ماوس به نشانگر دست */
+}
+.hovered {
+    width: 200px; /* اندازه بزرگتر شده تصویر */
+    height: 200px;
+    transition: width 0.3s, height 0.3s; /* انیمیشن تغییر اندازه */
+}
+@media (max-width: 768px) {
+    .logo-img {
+        width: 35px; /* اندازه نصف اولیه تصویر برای موبایل */
+        height: 35px;
+    }
+
+    .logo-img.clicked {
+        width: 75px; /* اندازه نصف بزرگتر شده تصویر برای موبایل */
+        height: 75px;
+    }
+    .hovered {
+    width: 100px; /* اندازه بزرگتر شده تصویر */
+    height: 100px;
+    transition: width 0.3s, height 0.3s; /* انیمیشن تغییر اندازه */
+}
+}

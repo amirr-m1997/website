@@ -1,0 +1,26 @@
+{
+    "platform": "django",
+    "django": {
+      "pythonVersion": "3.11",
+      "collectStatic": false,
+      "compileMessages": false,
+      "modifySettings": true,
+      "timezone": "Asia/Tehran"
+      
+    },
+    "app": "amirmohamadi",
+    "disks": [
+      {
+        "name": "staticfiles",
+        "mountTo": "staticfiles"
+      },
+      {
+        "name": "media",
+        "mountTo": "media"
+      },
+      {
+        "name": "sqlite3",
+        "mountTo": "data"
+      }
+    ]
+  }

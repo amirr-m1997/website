@@ -139,4 +139,15 @@ document.querySelectorAll('.ajax-comment-form').forEach((elm) => {
     })
 })
 
+// مربوط به لوگو
+$(document).ready(function(){
+    $('.logo-img').click(function(){
+        $(this).toggleClass('hovered'); // اضافه کردن یا حذف کلاس clicked
+        setTimeout(function(){
+            $('.logo-img').removeClass('hovered'); // حذف کلاس clicked بعد از ۳ ثانیه
+        }, 3000);
+        return false; // لغو رفتار پیش‌فرض کلیک بر روی لینک
+    });
+});
+
 
