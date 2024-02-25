@@ -23,8 +23,11 @@ SECRET_KEY = 'django-insecure-um@y^j(4*&9ictjns%^6)d&hxrgw*+y$26n(x=_^pjhzb=&_*j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
+
+# DEBUG = False
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
 
 # Application definition
 
@@ -36,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+    # 'silk'
     'myblog',
 ]
 
@@ -48,6 +52,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'myblog.custom_middleware.CustomPageNotFoundMiddleware',
+    # 'silk.middleware.SilkyMiddleware',
 
 ]
 

@@ -20,55 +20,6 @@
 
 /*============ 1. Body and Core Css ============*/
 
-/* ایجاد یک پس زمینه تاریک */
-
-/* استایل فرم */
-#contact-form {
-    background-color: rgba(248, 248, 248, 0.78);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgb(10, 2, 236);
-}
-
-/* استایل برچسب‌ها */
-label {
-    color: #de1212;
-    font-weight: bold;
-}
-
-/* استایل ورودی‌ها */
-.form-control {
-    background-color: rgba(12, 187, 210, 0.05);
-    color: rgb(17, 17, 17);
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-/* استایل دکمه ارسال */
-#contact-submit {
-    background-color: #04804e;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-/* استایل دکمه ارسال در حال نگهداری */
-#contact-submit:hover {
-    background-color: #0a02ec;
-}
-
-/* استایل پیام موفقیت‌آمیز */
-#success-message {
-    color: green;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-
 @font-face {
     font-family: "Vazir";
     src: url(../fonts/Vazir.ttf);
@@ -511,7 +462,7 @@ span {
 
 .main-btn {
     display: inline-block;
-    background-color: #222;
+    background-color: #000;
     padding: 10px 20px;
     border: 2px solid #222;
     color: #fff;
@@ -700,7 +651,7 @@ nav.navbar .logo {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #fff;
-    font-family: "Vazir", serif;
+    font-family: "Vazir";
 }
 
 nav.navbar .navbar-toggler {
@@ -1387,8 +1338,8 @@ section.portfolio .portfolio-items .item .item-content:hover .item-overlay .icon
 }
 
 .blogs .blog-item .blog-content .blog-meta .more {
-    color: #222;
-    border-bottom: 1px solid #aaa;
+    color: #000000;
+    border-bottom: 5px dashed #61d400;
     font-weight: 600;
 }
 
@@ -1462,84 +1413,171 @@ section.portfolio .portfolio-items .item .item-content:hover .item-overlay .icon
 
 /*============ 11. Contact Section ============*/
 
-.contact .single-info {
-    position: relative;
-    padding: 30px;
-    margin-bottom: 15px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+/* استایل فرم */
+#contact-form {
+    background-color: rgba(248, 248, 248, 0.78);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px #000;
+    border: 1px solid #0e0e0e;
 }
 
-.contact .single-info .info-icon {
-    position: absolute;
-    top: 25px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-    color: #fff;
-    background-color: #222;
-    text-align: center;
-    line-height: 50px;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
+/* استایل برچسب‌ها */
+label {
+    color: #de1212;
+    font-weight: bold;
 }
 
-.contact .single-info .info-content {
-    padding-left: 70px;
+/* استایل ورودی‌ها */
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    /*color: #495057;*/
+    color: rgb(17, 17, 17);
+    /*background-color: #fff;*/
+    background-color: rgba(12, 187, 210, 0.05);
+    background-clip: padding-box;
+    /*border: 1px solid #ced4da;*/
+    border: none;
+    border-radius: .25rem;
+    /*border-radius: 5px;*/
+    margin-bottom: 10px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+.form-control:focus {
+    outline: none; /* حذف خطوط پیش‌فرض هنگام focus */
+    border: 0.5px solid #000000; /* اضافه کردن حاشیه مشکی به المان هنگامی که فوکوس دارد */
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.45); /* اضافه کردن سایه ملایم برای بهتر نشان دادن focus */
 }
 
-.contact .single-info .info-content h5 {
-    margin-bottom: 5px;
-    text-transform: capitalize;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.2;
+/* استایل دکمه ارسال */
+#contact-submit {
+    background-color: #ffffff;
+    color: #0e0e0e;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #0e0e0e;
+    -webkit-tap-highlight-color: transparent; /* جلوگیری از رنگ‌دار شدن دکمه هنگام لمس در iOS */
+}
+/* استایل دکمه ارسال در حال نگهداری */
+#contact-submit:hover {
+    background-color: #000000;
+    color: #ffffff;
 }
 
-.contact .single-info .info-content p {
-    margin-bottom: 0;
-    font-size: 15px;
+
+/* استایل دکمه ارسال هنگام حالت hover برای دستگاه‌هایی که این قابلیت را دارند */
+@media (hover: hover) {
+    #contact-submit:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
 }
 
-.contact #contact-form .form-group {
-    margin-bottom: 24px;
+/* استایل دکمه ارسال برای دستگاه‌های لمسی که hover ندارند، مانند تلفن‌های همراه */
+@media (hover: none) {
+    #contact-submit:active {
+        background-color: #000000;
+        color: #ffffff;
+    }
 }
 
-.contact #contact-form .form-group .form-control {
-    font-size: 14px;
-    font-family: "Vazir";
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    color: #222;
-    border: 0;
-    border-bottom: 2px solid #222;
-    height: 3em;
-    -webkit-transition: all .4s ease;
-    -o-transition: all .4s ease;
-    transition: all .4s ease;
+
+/* استایل پیام موفقیت‌آمیز */
+#success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-.contact #contact-form .form-group textarea.form-control {
-    height: auto;
-    resize: none;
-}
 
-.contact #contact-form .form-group .con-error {
-    border-color: red;
-}
 
-.contact #contact-form .form-control:hover,
-.contact #contact-form .form-control:active,
-.contact #contact-form .form-control:focus {
-    -webkit-box-shadow: none;
-    -moz-webkit-box-shadow: none;
-    box-shadow: none;
-    border-color: #222;
-}
+/*.contact .single-info {*/
+/*    position: relative;*/
+/*    padding: 30px;*/
+/*    margin-bottom: 15px;*/
+/*    background-color: #f5f5f5;*/
+/*    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);*/
+/*    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+/*.contact .single-info .info-icon {*/
+/*    position: absolute;*/
+/*    top: 25px;*/
+/*    left: 30px;*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    font-size: 18px;*/
+/*    color: #fff;*/
+/*    background-color: #222;*/
+/*    text-align: center;*/
+/*    line-height: 50px;*/
+/*    -webkit-border-radius: 50%;*/
+/*    border-radius: 50%;*/
+/*}*/
+
+/*.contact .single-info .info-content {*/
+/*    padding-left: 70px;*/
+/*}*/
+
+/*.contact .single-info .info-content h5 {*/
+/*    margin-bottom: 5px;*/
+/*    text-transform: capitalize;*/
+/*    font-size: 14px;*/
+/*    font-weight: 700;*/
+/*    line-height: 1.2;*/
+/*}*/
+
+/*.contact .single-info .info-content p {*/
+/*    margin-bottom: 0;*/
+/*    font-size: 15px;*/
+/*}*/
+
+/*.contact #contact-form .form-group {*/
+/*    margin-bottom: 24px;*/
+/*}*/
+
+/*.contact #contact-form .form-group .form-control {*/
+/*    font-size: 14px;*/
+/*    font-family: "Vazir";*/
+/*    -webkit-box-shadow: none;*/
+/*    box-shadow: none;*/
+/*    -webkit-border-radius: 0;*/
+/*    border-radius: 0;*/
+/*    color: #222;*/
+/*    border: 0;*/
+/*    border-bottom: 2px solid #222;*/
+/*    height: 3em;*/
+/*    -webkit-transition: all .4s ease;*/
+/*    -o-transition: all .4s ease;*/
+/*    transition: all .4s ease;*/
+/*}*/
+
+/*.contact #contact-form .form-group textarea.form-control {*/
+/*    height: auto;*/
+/*    resize: none;*/
+/*}*/
+
+/*.contact #contact-form .form-group .con-error {*/
+/*    border-color: red;*/
+/*}*/
+
+/*.contact #contact-form .form-control:hover,*/
+/*.contact #contact-form .form-control:active,*/
+/*.contact #contact-form .form-control:focus {*/
+/*    -webkit-box-shadow: none;*/
+/*    -moz-webkit-box-shadow: none;*/
+/*    box-shadow: none;*/
+/*    border-color: #222;*/
+/*}*/
 
 
 /*============ 12. Footer  ============*/
@@ -1823,6 +1861,9 @@ section.banner-blog .banner-caption h1 {
 #error-message-description , #error-message-name, #error-message-email {
     color: red;
 }
+
+
+/* لوگو */
 
 .rounded-circle {
     border-radius: 50%;

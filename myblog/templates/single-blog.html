@@ -56,7 +56,7 @@
                             <div>
 {#                                <form id='contact-form' method="POST" action="{% url 'single-blog' blog.id %}">#}
                                 <form id='contact-form' method="POST" action="{% url 'single-blog' blog_id=blog.id %}">
-
+                                    
                                     <input type='hidden' name='form-name' value='contactForm'/>
                                     {% csrf_token %}
                                     <div class="row">
@@ -70,8 +70,6 @@
                                                            autocomplete="name">
                                                     <P id="error-message-name"></P>
                                                 </div>
-
-
                                                 <div class="col-md-6 form-group">
                                                     <label for="contact-email"></label>
                                                     <input  class="form-control con-validate"
@@ -80,7 +78,6 @@
                                                            autocomplete="email">
                                                     <P id="error-message-email"></P>
                                                 </div>
-
                                                 <div id="error-message"></div>
                                                 <div class="col-md-12 form-group">
                                                     <label for="contact-message"></label>
@@ -95,8 +92,7 @@
                                                             type="submit">
                                                         ارسال پیام
                                                     </button>
-                                                    <div id="success-message"
-                                                         style="display: none; color: green;"></div>
+                                                    <div id="success-message"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -200,7 +196,5 @@
 {#    </script>#}
 
 
-    <script>
 
-    </script>
 {% endblock %}

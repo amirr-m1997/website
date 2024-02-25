@@ -3,6 +3,8 @@ from .models import *
 from .forms import *
 from django.shortcuts import render
 from jdatetime import datetime as jdatetime
+from django.http import Http404
+from django.shortcuts import render
 
 
 # Indexدریافت اطلاعات فرم صفحه اول مربوط ب مدل
@@ -65,6 +67,15 @@ def single_blog(request, blog_id):
     now = jdatetime.now()
     return render(request, 'single-blog.html', context)
 
+
+
+
+
+
+def my_custom_page_not_found_view(request, exception):
+    response = render(request, '404.html')
+    response.status_code = 404
+    return response
 
 
 

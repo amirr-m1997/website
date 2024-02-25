@@ -19,10 +19,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+handler404 = 'myblog.views.my_custom_page_not_found_view'
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('9685/', admin.site.urls),
     path('', include('myblog.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]
