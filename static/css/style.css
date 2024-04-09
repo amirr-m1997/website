@@ -1611,7 +1611,7 @@ footer .copy {
 
 section.banner-blog {
 
-    height: 50vh;
+    height: 30vh;
     background-color: #222;
     position: relative;
     overflow: hidden;
@@ -1903,3 +1903,5 @@ section.banner-blog .banner-caption h1 {
     transition: width 0.3s, height 0.3s; /* انیمیشن تغییر اندازه */
 }
 }
+
+

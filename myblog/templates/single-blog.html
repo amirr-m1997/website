@@ -17,13 +17,13 @@
                 <li class="nav-item">
                     <a href="{% url 'index' %}" class="nav-link active"> صفحه اصلی</a><br>
                 </li>
-            </ul> 
+            </ul>
         </div>
     </nav>
     <section class="banner-blog">
         <div id="particles-js"></div>
         <div class="banner-caption text-center">
-            <h1>صفحه پست وبلاگ</h1>
+            <h1>وبلاگ</h1>
             <div class="bread-crumb mt-10">
                 <a href="{% url 'index' %}">خانه</a>
                 <a href="{% url 'blogs-list' %}">وبلاگ</a>
@@ -34,7 +34,8 @@
     <section class="blog-detail pt-100 pb-100" style="display: flow ; align-items: center">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 offset-lg-2">
+                <div class="col-lg-8 col-md-10 col-xl-8">
+                    {% load static %}
                     <div class="blog-image" style="align-items: center">
                         <img src="{{ blog.image.url }}" alt="{{ blog.sub }}">
                     </div>
@@ -49,14 +50,23 @@
                     </div>
                     <div class="blog-content">
                         <br>
-                        <blockquote>{{ blog.description }}</blockquote>
+                        <blockquote>{{ blog.description |safe }}</blockquote>
                     </div>
+                    {#                    {% if blog.sub == 'پست اول' %}#}
+                    {#                        {% include 'blog/post1.html' %}#}
+                    {#                    {% elif blog.sub == 'نصب فريمورك جنگو' %}#}
+                    {#                        {% include 'blog/installDjango.html' %}#}
+                    {#                    {% elif blog.sub == 'ايجاد پروژه با جنگو' %}#}
+                    {#                        {% include 'blog/createProject.html' %}#}
+                    {#                    {% elif blog.sub == 'تست' %}#}
+                    {#                        {% include 'blog/createProject.html' %}#}
+                    {#                    {% endif %}#}
                     <section>
                         <div>
                             <div>
-{#                                <form id='contact-form' method="POST" action="{% url 'single-blog' blog.id %}">#}
+                                {#                                <form id='contact-form' method="POST" action="{% url 'single-blog' blog.id %}">#}
                                 <form id='contact-form' method="POST" action="{% url 'single-blog' blog_id=blog.id %}">
-                                    
+
                                     <input type='hidden' name='form-name' value='contactForm'/>
                                     {% csrf_token %}
                                     <div class="row">
@@ -72,7 +82,7 @@
                                                 </div>
                                                 <div class="col-md-6 form-group">
                                                     <label for="contact-email"></label>
-                                                    <input  class="form-control con-validate"
+                                                    <input class="form-control con-validate"
                                                            id="contact-email"
                                                            placeholder="ایمیل(اجباری)" name="email"
                                                            autocomplete="email">
@@ -158,43 +168,8 @@
             </div>
         </div>
     </section>
-{#    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>#}
-
-{#    <script>#}
-{##}
-{##}
-{#        $("#contact-form").on("submit", function (event) {#}
-{#            event.preventDefault();#}
-{#            if (validateForm()) {#}
-{#                var form = $(this);#}
-{#                var name = $("#contact-name").val();#}
-{#                var email = $("#contact-email").val();#}
-{#                var description = $("#contact-message").val();#}
-{#                $.ajax({#}
-{#                    type: "POST",#}
-{#                    url: "{% url 'single-blog' blog.id %}",#}
-{#                    data: {#}
-{#                        name: name,#}
-{#                        email: email,#}
-{#                        description: description,#}
-{#                        csrfmiddlewaretoken: form.find('input[name="csrfmiddlewaretoken"]').val()#}
-{#                    },#}
-{#                    success: function (data) {#}
-{#                        form[0].reset();#}
-{#                        $("#success-message").text("پیام شما با موفقیت ارسال شد! نظر شما پس از تایید مدیر در زیر همین پست نمایش داده خواهد شد.").show();#}
-{##}
-{#                        setTimeout(function () {#}
-{#                            $("#success-message").hide();#}
-{#                        }, 7000);#}
-{#                    },#}
-{#                    error: function (xhr, textStatus, errorThrown) {#}
-{#                        $("#success-message").text("متاسفانه مشکلی در ارسال پیام به وجود آمد.لطفا دوباره امتحان نمایید!").show();#}
-{#                    }#}
-{#                });#}
-{#            }#}
-{#        });#}
-{#    </script>#}
 
 
 
 {% endblock %}
+                   

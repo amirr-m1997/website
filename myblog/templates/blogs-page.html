@@ -43,10 +43,10 @@
                             </div>
                             <div class="blog-content">
                                 <h3>{{ blog.sub }}</h3>
-                                <p>{{ blog.description }}</p>
+{#                                <p>{{ blog.description|safe }}</p>#}
                                 <div class="blog-meta">
                                 <span class="more">
-                                      <a href="{% url 'single-blog' blog.id %}">ارسال نظر</a>
+                                      <a href="{% url 'single-blog' blog.id %}">ادامه متن و ارسال نظر</a>
                                 </span>
                                     <span class="date">
                                     {{ blog.published|date:"d m Y" }}

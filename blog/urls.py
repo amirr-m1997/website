@@ -24,6 +24,7 @@ handler404 = 'myblog.views.my_custom_page_not_found_view'
 urlpatterns = [
     path('9685/', admin.site.urls),
     path('', include('myblog.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls'))
 ]
 
 if settings.DEBUG:

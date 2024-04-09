@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     # 'silk'
     'myblog',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -184,12 +186,23 @@ STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
 
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "media"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+#Ckeditor
+CKEDITOR_UPLOAD_PATH = "upload"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+# Advanced
+
 
 # from decouple import config
 # if config("ENABLE_WHITENOICE", cast=bool, default=False):

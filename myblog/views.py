@@ -32,6 +32,8 @@ def index(request):
 #  قسمت وبلاگ --->ارسال از ديتابيس ب فرانت مربوط به مدل Blog
 def blogs(request):
     blogs = Blog.objects.all()
+    for blog in blogs:
+        print(blog.sub)
     return render(request, 'blogs-page.html', {'blogs': blogs})
 
 
@@ -76,6 +78,13 @@ def my_custom_page_not_found_view(request, exception):
     response = render(request, '404.html')
     response.status_code = 404
     return response
+
+
+def my_custom_error_view(request, exception=None):
+    response = render(request, '500.html')
+    response.status_code = 500
+    return response
+
 
 
 
